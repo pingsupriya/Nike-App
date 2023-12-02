@@ -1,7 +1,9 @@
-import React from 'react'
-import {button } from '../Components/Button'
+import React from 'react';
+import Button from '../Components/Button';
+import { arrowRight } from '../assets/icons/index';
+import {statistics} from '../Constants'
 
-function Hero() {
+const Hero=()=> {
     return (
         <section
         id="home"
@@ -19,11 +21,17 @@ function Hero() {
                 <Button label="Shop now"
                 iconURL = {arrowRight}
                 />
-            
+                <div className='flex justify-starts items-start flex-wrap w-full mt-20 gap-16'>
+                    {statistics.map((stat,index)=>(
+                        <div key={stat.label}> 
+                            <p>{stat.value}</p>
+                            <p>{stat.label}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     )
 }
-import { arrowRight } from '../assets/icons'
 
 export default Hero
